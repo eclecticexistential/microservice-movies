@@ -31,10 +31,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   const message = req.app.get('env') === 'development' ? err : {};
   res.status(err.status || 500);
-  res.json({
-    status: 'error',
-    message: err,
-  });
+  res.json({ status: 'error', message });
 });
 /* eslint-enable no-unused-vars */
 
